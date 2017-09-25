@@ -4,27 +4,25 @@ class LearningType::Game
     @level_number = level_number
   end
 
+  Text = [
+    'fff jjj fff.',
+    'Copy this text 1.',
+    'Paragraph.',
+  ]
+
   def play_game
-    text = [
-      'Copy this text 1.',
-      'Copy this text 2.',
-      'Copy this text 3.',
-    ]
+    puts Text[level_number]
 
-      puts text[level_number]
-
-      user_input = gets.chomp
-      results(user_input)
-    end
+    user_input = gets.chomp
+    results(user_input)
+  end
 
 
   def results(user_input)
-    text = [
-      'Copy this text 1.',
-      'fff jjj fff.',
-      'Paragraph.',
-    ]
-    (user_input == text[level_number]) ? puts('Perfect!') : puts('Next time :(')
+    @text
+
+    (user_input == Text[level_number]) ? puts('Perfect!') : puts('Next time :(')
+
     LearningType::Instructions.new.give_instruction
   end
 end

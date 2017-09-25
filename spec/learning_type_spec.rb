@@ -15,10 +15,9 @@ end
 RSpec.describe LearningType::Game do
   describe 'cget_user_input' do
     it 'returns foo as input' do
-      allow($stdin).to receive(:gets).and_return('foo')
-      user_input = $stdin.gets
+      expect($stdin).to receive(:gets)
+      $stdin.gets
 
-      expect(user_input).to eq('foo')
     end
   end
 end
