@@ -9,7 +9,7 @@ module LearningType
     enter = gets
 
     if enter == "\n"
-      Instructions.new.give_instructions
+      Instructions.new
     end
   end
 end
