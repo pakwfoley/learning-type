@@ -15,11 +15,12 @@ class LearningType::Instructions
     end
   end
 
-  
+  def give_instructions(level_number)
     puts instructions[level_number]
     enter = gets
 
     if enter == "\n"
       LearningType::Game.new(level_number).output_text
+    end
   end
 end
