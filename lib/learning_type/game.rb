@@ -4,14 +4,14 @@ class LearningType::Game
     @level_number = level_number
   end
 
-  Text = [
+  TEXT = [
     'fff jjj fff.',
-    'Copy this text 1.',
+    'Sentence.',
     'Paragraph.',
   ]
 
   def play_game
-    puts Text[level_number]
+    puts TEXT[level_number]
 
     user_input = gets.chomp
     results(user_input)
@@ -19,10 +19,10 @@ class LearningType::Game
 
 
   def results(user_input)
-    @text
+    (user_input == TEXT[level_number]) ? puts('Perfect!') : puts('Next time :(')
 
-    (user_input == Text[level_number]) ? puts('Perfect!') : puts('Next time :(')
+    @level_number += 1
 
-    LearningType::Instructions.new.give_instruction
+    LearningType::Instructions.new.give_instruction(level_number)
   end
 end
