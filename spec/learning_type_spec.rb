@@ -8,16 +8,15 @@ end
 
 RSpec.describe LearningType::Start do
   it "Gives instructions to start the game" do
-    expect {LearningType::Start.new}.to output("Welcome to Learning Type! Press Enter/Return to begin").to_stdout
+    expect {$stdin}.to recieve(:puts)
   end
 end
 
 RSpec.describe LearningType::Game do
-  describe 'cget_user_input' do
+  describe 'get_user_input' do
     it 'returns foo as input' do
       expect($stdin).to receive(:gets)
       $stdin.gets
-
     end
   end
 end
