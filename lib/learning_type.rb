@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require "learning_type/version"
+require 'learning_type/game'
 
 module LearningType
 

@@ -20,6 +20,14 @@ RSpec.describe LearningType do
   end
 end
 
+RSpec.describe LearningType::Game do
+  context "#start" do
+    it "should give instructions" do
+      expect(LearningType::Game.new.start()).to include('Copy the following pattern to the best of your ability then press the enter key. When you are ready to begin press enter key.')
+    end
+  end
+end
+
 # RSpec.describe LearningType::Start do
 #   it "Gives instructions to start the game" do
 #     expect($stdin).to receive(:puts)
