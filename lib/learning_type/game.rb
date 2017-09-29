@@ -4,38 +4,33 @@ class LearningType::Game
     @level_number = level_number
   end
 
+  INSTRUCTIONS = [
+    'Copy the following pattern to the best of your ability then press the enter key. When you are ready to begin press enter key.',
+    'Copy the following sentence to the best of your ability then press the enter key. When you are ready to begin press enter key.',
+    'Copy the following paragraph to the best of your ability then press the enter key. When you are ready to begin press enter key.',
+  ]
+
   TEXT = [
     'fff jjj fff.',
     'Sentence.',
     'Paragraph.',
   ]
 
-  def start(level_number)
-    puts get_index_value(INSTRUCTIONS, level_number)
+  def get_index_value(array, level_number)
+    array[level_number - 1]
+  end
+
+  def give_instructions(level_number = 1)
+    get_index_value(INSTRUCTIONS, level_number)
+  end
+
+  def start(level_number = 1)
+    puts give_instructions(level_number)
     gets
     play_game(level_number)
   end
 
-  def get_index_value(array, level_number)
-    array[level_number - 1]
+  def play_game(level_number)
+    "Do game stuff"
   end
 end
-
-
-
-#   def play_game
-#     puts TEXT[level_number]
-#
-#     user_input = gets.chomp
-#     results(user_input)
-#   end
-#
-#
-#   def results(user_input)
-#     (user_input == TEXT[level_number]) ? puts('Perfect!') : puts('Next time :(')
-#
-#     @level_number += 1
-#
-#     LearningType::Instructions.new.give_instruction(level_number)
-#   end
-# end
