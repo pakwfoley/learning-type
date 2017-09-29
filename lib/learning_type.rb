@@ -1,15 +1,24 @@
 require 'bundler/setup'
 require "learning_type/version"
-require "learning_type/Instructions"
-require "learning_type/game"
+require 'learning_type/game'
 
 module LearningType
-  class Start
-    puts 'Welcome to Learning Type! Press Enter/Return to begin'
-    enter = gets
 
-    if enter == "\n"
-      Instructions.new.give_instruction
-    end
+  def self.welcome
+    "Welcome To Learning Type. Press enter when your ready to start"
   end
+
+  def self.start_game(game = LearningType::Game.new)
+    game.start
+  end
+
+  def self.run
+    puts welcome
+    gets
+    start_game
+  end
+end
+
+if __FILE__ == $0
+  LearningType.run
 end
