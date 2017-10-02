@@ -34,4 +34,26 @@ RSpec.describe LearningType::Game do
       game.start
     end
   end
+
+  context "#give_test" do
+    it "should output test text" do
+      expect(LearningType::Game.new.give_test).to include('fff jjj fff.')
+    end
+  end
+
+  context "#play_game" do
+    it "gets accuracy results" do
+      results = double(:calculate_accuracy)
+      user_input = gets
+      expect(results(user_input)).to receive(:calculate_accuracy)
+      LearningType::Game.new.play_game(results(user_input))
+    end
+
+    it "gets accuracy results" do
+      results = double(:calculate_wpm)
+      user_input = gets
+      expect(results(user_input)).to receive(:calculate_wpm)
+      LearningType::Game.new.play_game(results(user_input))
+    end
+  end
 end

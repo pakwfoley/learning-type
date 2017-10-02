@@ -1,6 +1,8 @@
 require 'bundler/setup'
 require "learning_type/version"
 require 'learning_type/game'
+require 'learning_type/results'
+require 'learning_type/level'
 
 module LearningType
 
@@ -14,7 +16,8 @@ module LearningType
 
   def self.run
     puts welcome
-    gets
+    STDIN.getch
+    print "\r"
     start_game
   end
 end
