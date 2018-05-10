@@ -1,26 +1,27 @@
+require 'bundler/setup'
 require "learning_type/version"
+require 'learning_type/game'
+require 'learning_type/results'
+require 'learning_type/level'
 
 module LearningType
 
-  class Instructions
-    def give_instructions
-      puts 'Copy the following text to the best of your ability then type the enter key. When you are ready to start type enter key.'
-      enter = gets
-
-      if enter == "\n"
-        Game.new
-      end
-    end
+  def self.welcome
+    "Welcome To Learning Type. Press enter when your ready to start"
   end
 
-  class Game
-    def get_user_input
-      puts 'Copy this text.'
-      user_input = gets.chomp
-    end
-
-    def results
-
-    end
+  def self.start_game(game = LearningType::Game.new)
+    game.start
   end
+
+  def self.run
+    puts welcome
+    STDIN.getch
+    print "\r"
+    start_game
+  end
+end
+
+if __FILE__ == $0
+  LearningType.run
 end
