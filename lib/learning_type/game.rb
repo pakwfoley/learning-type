@@ -20,6 +20,12 @@ class LearningType::Game
     array[level_number - 1]
   end
 
+  def fake_method
+  end
+
+  def second_fake_method
+  end
+
   def give_instructions(level_number = 1)
     get_index_value(INSTRUCTIONS, level_number)
   end
