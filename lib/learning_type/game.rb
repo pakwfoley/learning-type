@@ -23,6 +23,9 @@ class LearningType::Game
   def fake_method
   end
 
+  def second_fake_method
+  end
+
   def give_instructions(level_number = 1)
     get_index_value(INSTRUCTIONS, level_number)
   end
